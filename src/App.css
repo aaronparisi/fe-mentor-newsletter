@@ -1,38 +1,149 @@
+@font-face {
+  font-family: 'RobotoLocal';
+  src: url('./fonts/Roboto-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RobotoLocal';
+  src: url('./fonts/Roboto-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+body {
+  --color-white: #ffffff;
+  --color-dark-blue: #36384e;
+  --color-darker-blue: #262641;
+  --color-pink: #ff537b;
+  --color-orange: #fe6a3d;
+  --font-size-large: 3rem;
+  --font-size-medium: 1rem;
+  --font-size-small: .8rem;
+  --font-size-smaller: .6rem;
+
+  font-family: 'RobotoLocal', sans-serif;
+  color: var(--color-darker-blue);
+  background-color: var(--color-dark-blue);
+}
+
 .App {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-size: var(--font-size-large);
+  font-weight: bold;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+p,
+li {
+  font-size: 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.success-modal,
+.subscription-form {
+  background-color: var(--color-white);
+  border-radius: 20px;
+  padding: 2%;
+}
+
+.subscription-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: stretch;
+  gap: 3%;
+}
+
+.subscription-form-rhs {
+  flex-grow: 0;
+  height: clamp(400px, 60vh, 600px);
+}
+
+.subscription-form-lhs {
+  max-width: 400px;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  
+  padding: .5rem;
 }
 
-.App-link {
-  color: #61dafb;
+.subscription-form-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.subscription-form-info h1 {
+  margin: 0;
+}
+
+.subscription-form-info ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.subscription-form-info ul li {
+  background-image: url('/public/images/icon-success.svg');
+  background-repeat: no-repeat;
+  background-size: 16px 16px; /* Adjust the size of the SVG */
+  background-position: 0 50%; /* Adjust the position of the SVG */
+  padding: .5rem 0px .5rem 20px; /* Add padding to make space for the SVG */
+}
+
+.subscription-form-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.subscription-form-form label {
+  font-size: var(--font-size-smaller);
+  font-weight: bold;
+  margin-bottom: .5rem;
+}
+
+button,
+.subscription-form-form input {
+  padding: 1rem;
+  border-radius: 10px;
+  font-family: 'RobotoLocal', sans-serif;
+  width: 100%;
+}
+
+button,
+.subscription-form-form input[type="submit"] {
+  margin-top: 1rem;
+  border: none;
+  color: var(--color-white);
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(to right, var(--color-pink), var(--color-orange));
+}
+
+button:disabled,
+.subscription-form-form input[type="submit"]:disabled {
+  background: var(--color-dark-blue);
+  cursor: not-allowed;
+}
+
+.success-modal {
+  background: var(--color-white);
+  aspect-ratio: 1 / 1;
+  height: 70vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.success-modal img {
+  height: 15%;
 }
